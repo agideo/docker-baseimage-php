@@ -102,6 +102,11 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 
 # PHANTOMJS BEGIN
 RUN set -ex \
+  && apt-get update \
+  && apt-get install -y --no-install-recommends libmysqlclient-dev bzip2 libfontconfig\
+  && apt-get clean
+
+RUN set -ex \
   && mkdir /tmp/phantomjs \
   && curl -L https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 \
          | tar -xj --strip-components=1 -C /tmp/phantomjs \
