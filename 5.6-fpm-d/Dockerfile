@@ -100,6 +100,17 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 
 # YARN END
 
+# PHANTOMJS BEGIN
+RUN set -ex \
+  && mkdir /tmp/phantomjs \
+  && curl -L https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 \
+         | tar -xj --strip-components=1 -C /tmp/phantomjs \
+  && cd /tmp/phantomjs \
+  && mv bin/phantomjs /usr/local/bin \
+  && cd \
+  && rm -rf /tmp/phantomjs
+# PHANTOMJS END
+
 # LOCALE BEGIN
 RUN set -ex \
   && apt-get install -y --no-install-recommends locales \
