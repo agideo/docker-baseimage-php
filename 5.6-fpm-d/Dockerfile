@@ -100,6 +100,13 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
 
 # YARN END
 
+# PHP5-MYSQL BEGIN
+RUN set -ex \
+  && apt-get update \
+  && apt-get install -y --no-install-recommends php5-mysql\
+  && apt-get clean
+# PHP5-MYSQL END
+
 # PHANTOMJS BEGIN
 RUN set -ex \
   && apt-get update \
