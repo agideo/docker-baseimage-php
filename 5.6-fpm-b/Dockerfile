@@ -60,6 +60,10 @@ RUN apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net --recv-keys 573BFD6
 
 # NGINX_SERVER END
 
+# PDO-MYSQL BEGIN
+RUN docker-php-ext-install pdo pdo_mysql
+# PDO-MYSQL END
+
 # NODE6 BEGIN
 ENV NODE_VERSION 6.7.0
 ENV NPM_CONFIG_LOGLEVEL info

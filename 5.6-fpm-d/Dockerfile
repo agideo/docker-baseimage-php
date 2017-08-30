@@ -60,6 +60,10 @@ RUN apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net --recv-keys 573BFD6
 
 # NGINX_SERVER END
 
+# PDO-MYSQL BEGIN
+RUN docker-php-ext-install pdo pdo_mysql
+# PDO-MYSQL END
+
 # NODE6 BEGIN
 ENV NODE_VERSION 6.7.0
 ENV NPM_CONFIG_LOGLEVEL info
@@ -99,13 +103,6 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
   && apt-get install --no-install-recommends yarn
 
 # YARN END
-
-# PHP5-MYSQL BEGIN
-RUN set -ex \
-  && apt-get update \
-  && apt-get install -y --no-install-recommends php5-mysql\
-  && apt-get clean
-# PHP5-MYSQL END
 
 # PHANTOMJS BEGIN
 RUN set -ex \
