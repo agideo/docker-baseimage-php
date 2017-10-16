@@ -10,6 +10,7 @@ RUN set -ex \
 
 # DEBIAN_DPKGS BEGIN
 RUN set -ex \
+  && apt-get update \
   && apt-get install -y --no-install-recommends ca-certificates curl wget git-core htop screen apt-transport-https vim php5-gd
 
 # DEBIAN_DPKGS END
