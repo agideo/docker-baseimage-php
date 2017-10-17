@@ -17,7 +17,7 @@ RUN set -ex \
 
 # PHP5-GD BEGIN
 RUN set -ex \
-  && apt-get update --fix-missing
+  && apt-get update --fix-missing \
   && apt-get install -y  --no-install-recommends php5-gd
 # PHP5-GD END
 
