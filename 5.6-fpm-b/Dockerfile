@@ -11,9 +11,15 @@ RUN set -ex \
 # DEBIAN_DPKGS BEGIN
 RUN set -ex \
   && apt-get update \
-  && apt-get install -y --no-install-recommends ca-certificates curl wget git-core htop screen apt-transport-https vim php5-gd
+  && apt-get install -y --no-install-recommends ca-certificates curl wget git-core htop screen apt-transport-https vim
 
 # DEBIAN_DPKGS END
+
+# PHP5-GD BEGIN
+RUN set -ex \
+  && apt-get update --fix-missing
+  && apt-get install -y  --no-install-recommends php5-gd
+# PHP5-GD END
 
 # SUPERVISOR BEGIN
 RUN set -ex \
